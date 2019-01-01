@@ -1,9 +1,9 @@
 #include <Mouse.h>
 #include <Keyboard.h>
 
-int buttonAPin = 9;
+int buttonAPin = 8;
 int buttonAState = 0;
-int buttonBPin = 8;
+int buttonBPin = 9;
 int buttonBState = 0;
 
 boolean triggered = false;
