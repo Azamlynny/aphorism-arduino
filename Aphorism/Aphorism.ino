@@ -5,6 +5,7 @@ int buttonAPin = 9;
 int buttonAState = 0;
 char ctrlKey = KEY_LEFT_GUI;
 boolean triggered = false;
+boolean brightness = false;
 
 void setup() {
   pinMode(buttonAPin, INPUT_PULLUP);
@@ -24,6 +25,7 @@ void loop() {
 
   if(triggered){
     spinScreen();
+    alternateBrightness();
   }
 }
 
@@ -45,7 +47,19 @@ void spinScreen(){
   delay(500);
 }
 
-void alternateBrightness(){
-
-}
+void alternateBrightness(){ //16 keypresses to do
+  if(brightness){
+    for(int i = 0; i < 16; i++){
+      Keyboard.press(KEY_F6); 
+      delay(10);
+    }
+    brightness = false;
+  }
+  else if (brightness == false){
+    for(int i = 0; i < 16; i++){
+      Keyboard.press(KEY_F7);
+      delay(10);
+    }
+    brightness == true;
+  }
 }
