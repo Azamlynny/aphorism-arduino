@@ -3,12 +3,15 @@
 
 int buttonAPin = 9;
 int buttonAState = 0;
-char ctrlKey = KEY_LEFT_GUI;
+int buttonBPin = 8;
+int buttonBState = 0;
+
 boolean triggered = false;
 boolean brightness = false;
 
 void setup() {
   pinMode(buttonAPin, INPUT_PULLUP);
+  pinMode(buttonBPin, INPUT_PULLUP);
 
   Mouse.begin();
   Keyboard.begin();
@@ -23,6 +26,10 @@ void loop() {
     triggered = true;
   }
 
+  if (buttonBState == LOW){
+    triggered = false;
+  }
+  
   if(triggered){
     spinScreen();
     alternateBrightness();
