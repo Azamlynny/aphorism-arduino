@@ -19,7 +19,8 @@ void setup() {
 
 void loop() {
   buttonAState = digitalRead(buttonAPin);
-
+  buttonBState = digitalRead(buttonBPin);
+  
   if (buttonAState == LOW) {
     
     breakChromebook();
@@ -27,7 +28,7 @@ void loop() {
   }
 
   if (buttonBState == LOW){
-    triggered = false;
+//    triggered = false;
   }
   
   if(triggered){
@@ -56,17 +57,13 @@ void spinScreen(){
 
 void alternateBrightness(){ //16 keypresses to do
   if(brightness){
-    for(int i = 0; i < 16; i++){
-      Keyboard.press(KEY_F6); 
-      delay(10);
-    }
+    Keyboard.release(KEY_F7);
+    Keyboard.press(KEY_F6);
     brightness = false;
   }
   else if (brightness == false){
-    for(int i = 0; i < 16; i++){
-      Keyboard.press(KEY_F7);
-      delay(10);
-    }
-    brightness == true;
+    Keyboard.release(KEY_F6);
+    Keyboard.press(KEY_F7);
+    brightness == true;    
   }
 }
