@@ -3,15 +3,12 @@
 
 int buttonAPin = 8;
 int buttonAState = 0;
-int buttonBPin = 9;
-int buttonBState = 0;
 
 boolean triggered = false;
 boolean brightness = false;
 
 void setup() {
   pinMode(buttonAPin, INPUT_PULLUP);
-  pinMode(buttonBPin, INPUT_PULLUP);
   srand (5);
   Mouse.begin();
   Keyboard.begin();
@@ -19,15 +16,10 @@ void setup() {
 
 void loop() {
   buttonAState = digitalRead(buttonAPin);
-  buttonBState = digitalRead(buttonBPin);
   
   if (buttonAState == LOW) {
     breakChromebook();
     triggered = true;
-  }
-
-  if (buttonBState == LOW){
-    triggered = false;
   }
   
   if(triggered){
