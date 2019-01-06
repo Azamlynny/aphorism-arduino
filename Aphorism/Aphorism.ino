@@ -26,8 +26,7 @@ void loop() {
     spinScreen();
     invertColors(); 
     moveMouse();
-    openPages(1);
-    
+    openPages(1); 
   }
 }
 
@@ -38,7 +37,6 @@ void breakChromebook() {
   delay(1000);
   openPages(1);
   delay(1000);
-//  chromeVox();
   openTerminal();
   delay(3000);
   dockedMagnifier();
@@ -104,29 +102,9 @@ void chromeVox(){
   Keyboard.press('z');
   Keyboard.releaseAll();
 }
+
 void dockedMagnifier(){
   Keyboard.press(KEY_LEFT_CTRL);
   Keyboard.press(KEY_LEFT_GUI); 
   Keyboard.press('d');
 }
-
-//no work
-//void biosMode(){
-//  Keyboard.press(KEY_ESC);
-//  Keyboard.press(KEY_F3);
-//  Keyboard.press(KEY_F12);
-//}
-
-//No work
-//void alternateBrightness(){ //16 keypresses to do
-//  if(brightness){
-//    Keyboard.release(KEY_F7);
-//    Keyboard.press(KEY_F6);
-//    brightness = false;
-//  }
-//  else if (brightness == false){
-//    Keyboard.release(KEY_F6);
-//    Keyboard.press(KEY_F7);
-//    brightness == true;    
-//  }
-//}
